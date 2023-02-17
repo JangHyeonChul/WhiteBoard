@@ -1,0 +1,98 @@
+.app-header-container {
+    max-width: var(--base-container-width);
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: var(--base-padding);
+    padding-right: var(--base-padding);
+    justify-content: flex-start;
+
+
+}
+
+.app-header-left,
+.app-header-center,
+.app-header-right {
+
+    display: flex;
+}
+
+.app-header-left,
+.app-header-right {
+    width: 250px;
+
+}
+
+.app-header-left {
+    font-size: 20px;
+    color: white;
+}
+
+.app-header-center {
+    width: 580px;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.app-header-right {
+    justify-content: flex-end;
+}
+
+.app-header-cnav ul,
+.app-header-cnav-item {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+
+.app-header-cnav ul {
+    list-style: none;
+}
+
+.app-header-cnav-item {
+
+    flex-direction: column;
+    align-items: center;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #ced4da;
+
+}
+
+.app-header-cnav ul li i {
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.app-header-right a,
+.app-header-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ced4da;
+
+    height: 2.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    border-radius: 5.25rem;
+    font-size: 0.90rem;
+    cursor: pointer;
+
+
+
+
+
+
+}
+.app-header-register {
+    background-color: var(--color-register-btn);
+}
+
