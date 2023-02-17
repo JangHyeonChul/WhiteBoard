@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+<head th:replace="fragements/header">
     <title>BoardWrite</title>
-</head>
 <body>
+<div th:replace="fragements/bodyHeader"></div>
+<div class="app-header-space"></div>
+<div class="app-layout">
 <h1>글쓰기</h1>
 <form th:action="@{/board/boardWrite}" th:object="${boardDto}" method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -29,5 +30,7 @@
     </div>
     <button type="submit" class="btn btn-primary">글 작성</button>
 </form>
+</div>
 </body>
+
 </html>
