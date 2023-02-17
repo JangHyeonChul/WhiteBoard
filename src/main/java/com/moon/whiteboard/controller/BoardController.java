@@ -22,6 +22,7 @@ public class BoardController {
     public ModelAndView getWrite(ModelAndView mv){
         mv.addObject("boardDto", new BoardDto());
         mv.setViewName("/board/boardWrite");
+
         return mv;
     }
     @GetMapping("/boardDetail")
