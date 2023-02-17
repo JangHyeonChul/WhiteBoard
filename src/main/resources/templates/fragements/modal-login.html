@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div id="modal" class="modal-register-scheme">
+  <div class="modal-register-overlay">
+    <div class="modal-register-form">
+      <div class="modal-header">
+        <h3>로그인</h3>
+        <i onclick="closeModal()" class="fas fa-times"></i>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="modal-login">
+            <h2>이메일 주소</h2>
+            <input type="email" placeholder="user@email.com">
+          </div>
+          <div class="modal-login">
+            <h2>패스워드</h2>
+            <input type="password" placeholder="*********">
+          </div>
+          <div class="modal-memory">
+            <div class="memory-check">
+              <input type="checkbox">
+              <p>아이디 기억</p>
+            </div>
+            <a>ID/PW 찾기</a>
+          </div>
+          <button class="modal-submit" type="submit">로그인</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

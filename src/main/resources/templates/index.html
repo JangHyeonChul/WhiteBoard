@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragements/header">
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>Document</title>
 </head>
 <body>
-<span th:text="링크"></span>
-    <a th:href="@{/board/write}">글쓰기</a>
 
-    <a th:href="@{/board/boardDetail}">보드 디테일</a>
+<div th:replace="fragements/bodyHeader"></div>
+
+
+<div class="app-header-space"></div>
+<div class="app-layout">
+    <div class="app-member-content-header"><i class="fas fa-lightbulb"></i>  최신글</div>
+
+    <li class="member-content-list">
+        <div>
+            <span class="member-content-span" ></span>
+        </div>
+        <div>
+            <span class="member-content-span">컨텐츠내용</span>
+        </div>
+        <div>
+            <span class="member-content-span">작성일, 작성자, 조회수</span>
+        </div>
+    </li>
+
+    <li class="member-content-list">
+        <div>
+            <span class="member-content-span">제목</span>
+        </div>
+        <div>
+            <span class="member-content-span">컨텐츠내용</span>
+        </div>
+        <div>
+            <span class="member-content-span">작성일, 작성자, 조회수</span>
+        </div>
+    </li>
+
+
+</div>
+
+<div th:replace="fragements/modal-login"></div>
+<script type="text/javascript" src="modaljs.js"></script>
 </body>
 </html>
