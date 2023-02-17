@@ -1,0 +1,10 @@
+:root {
+    --app-header-nav-color: #343a40; /* header nav background color */
+    --color-register-card: white;
+    --color-register-btn: rgb(188, 137, 255);
+    --color-text: #8f9caa;
+    --base-container-width: 1080px;
+    --base-padding: 1.25rem;
+    --app-header-height: 4.5rem;
+
+}
