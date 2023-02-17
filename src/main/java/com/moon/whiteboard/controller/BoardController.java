@@ -19,7 +19,7 @@ public class BoardController {
         return mv;
     }
     @GetMapping("/boardDetail")
-    public ModelAndView getWrite(ModelAndView  mv){
+    public ModelAndView getDetail(ModelAndView mv){
         mv.setViewName("/board/boardDetail");
         return mv;
     }
