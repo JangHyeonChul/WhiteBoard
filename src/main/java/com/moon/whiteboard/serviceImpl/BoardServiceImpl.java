@@ -12,4 +12,5 @@ public class BoardServiceImpl implements BoardService {
 
     @Autowired
     BoardMapper boardMapper;
+
 }
