@@ -10,13 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
-
     @Autowired
     BoardService boardService;
 
     @GetMapping("/write")
     public ModelAndView getWrite(ModelAndView mv){
         mv.setViewName("/board/boardWrite");
+        return mv;
+    }
+    @GetMapping("/boardDetail")
+    public ModelAndView getWrite(ModelAndView  mv){
+        mv.setViewName("/board/boardDetail");
         return mv;
     }
 
