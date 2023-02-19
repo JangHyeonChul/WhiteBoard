@@ -5,18 +5,17 @@
     <title>Document</title>
 </head>
 <body>
-
 <div th:replace="fragements/bodyHeader"></div>
-
-
 <div class="app-header-space"></div>
 <div class="app-layout">
     <div class="app-member-content-header"><i class="fas fa-lightbulb"></i>  최신글</div>
 
     <li class="member-content-list">
-        <div>
-            <span class="member-content-span" ></span>
-        </div>
+        <a th:href="@{/board/boardDetail}" style="text-decoration: none; color: black" >
+            <div>
+                <span class="member-content-span">제목</span>
+            </div>
+        </a>
         <div>
             <span class="member-content-span">컨텐츠내용</span>
         </div>

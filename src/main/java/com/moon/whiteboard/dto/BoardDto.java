@@ -1,10 +1,12 @@
 package com.moon.whiteboard.dto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
-@Data
+@Data //-> 게더 세터
 public class BoardDto {
     private long uid;
     private String type;

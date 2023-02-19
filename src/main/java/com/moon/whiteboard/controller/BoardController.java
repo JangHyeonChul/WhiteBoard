@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/board/*")
+@RequestMapping("/board")
 public class BoardController {
     @Autowired
     BoardService boardService;
@@ -16,13 +16,11 @@ public class BoardController {
     @GetMapping("/write")
     public ModelAndView getWrite(ModelAndView mv){
         mv.setViewName("/board/boardWrite");
-
         return mv;
     }
     @GetMapping("/boardDetail")
-    public ModelAndView getDetail(ModelAndView mv){
-        mv.setViewName("/board/boardDetail");
-        return mv;
-    }
+    public String getDetail(){
+        return "/board/boardDetail";
+    }//보드 /*/ 딛=테일
 
 }
