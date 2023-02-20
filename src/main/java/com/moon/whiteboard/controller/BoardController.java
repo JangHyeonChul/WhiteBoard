@@ -1,7 +1,6 @@
-package com.moon.whiteboard.controller;
+package com.moon.whiteboard.Controller;
 
-import com.moon.whiteboard.service.BoardService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/board/*")
 public class BoardController {
 
-    @Autowired
-    BoardService boardService;
+
 
 
 }

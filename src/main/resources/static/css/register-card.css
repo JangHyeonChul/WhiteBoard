@@ -81,9 +81,52 @@
     list-style: none;
 }
 
-.register-submit-form {
+.register-body-li {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    border-bottom: solid 1px #e9ecef;
+    font-size: 0.80rem;
+}
+
+.register-submit-form input {
+    border-radius: 0.6rem;
+    padding: 0.4rem;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    width: 25%;
 
 }
 
+.register-submit-form input:focus {
+    border: 1px solid rgba(255, 0, 0, 0.13);
+}
+
+.register-submit-form div label{
+    padding-bottom: 1rem;
+}
 
 
+#register-emailcheck {
+    margin-left: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    font-size: 0.8rem;
+}
+
+.check-mail {
+    font-size: 0.70rem;
+}
+
+#nick-check-span,
+#pwd-check-span,
+#email-check-span,
+#email-span {
+    margin-top: 1rem;
+    color : #ff6262;
+}
+
+#register_send_btn {
+    margin-top: 1.25rem;
+}

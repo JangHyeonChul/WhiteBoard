@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div class="app-header-navigation">
   <div class="app-header-container">
     <div class="app-header-left">Forbiden.</div>
@@ -7,7 +5,7 @@
     <div class="app-header-center">
       <nav class="app-header-cnav">
         <ul>
-          <li class="app-header-cnav-item"><i class="fas fa-home fa-lg"></i>홈</li>
+          <li class="app-header-cnav-item"><i class="fas fa-home fa-lg"></i><a th:href="@{/}"th:text="홈"></a></li>
           <li class="app-header-cnav-item"><i class="fas fa-fire fa-lg"></i>인기글</li>
           <li class="app-header-cnav-item"><i class="fas fa-comment fa-lg"></i>게시판</li>
           <li class="app-header-cnav-item"><i class="fas fa-scroll fa-lg"></i>공지</li>
@@ -19,7 +17,8 @@
 
     <div class="app-header-right">
       <a id="login-btn" onclick="openModal()">로그인</a>
-      <a class="app-header-register">회원가입</a>
+      <a th:href="@{/member/register}" class="app-header-register">회원가입</a>
     </div>
   </div>
 </div>
+<div class="app-header-space"></div>
