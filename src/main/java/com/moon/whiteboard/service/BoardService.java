@@ -7,6 +7,5 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 public interface BoardService {
-    List<BoardDto> getBoard() throws Exception;
-
+    BoardDto getBoardDetail(Long uid);
 }
