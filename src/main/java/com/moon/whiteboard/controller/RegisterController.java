@@ -1,8 +1,8 @@
-package com.moon.whiteboard.Controller;
+package com.moon.whiteboard.controller;
 
 
-import com.moon.whiteboard.Service.EmailService;
-import com.moon.whiteboard.Service.MemberService;
+import com.moon.whiteboard.service.EmailService;
+import com.moon.whiteboard.service.MemberService;
 import com.moon.whiteboard.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
