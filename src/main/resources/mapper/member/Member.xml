@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moon.whiteboard.mapperdao.MemberDAO">
+    <select id="findByEmail" parameterType="String" resultType="com.moon.whiteboard.dto.Member">
+        select * from user where email =  #{email}
+    </select>
+
+    <insert id="saveMember" parameterType="com.moon.whiteboard.dto.Member">
+        insert into user(password, nickname, email, created_at, updated_at, is_del)
+        values(#{password}, #{nickname}, #{email}, now(), now(), 1)
+    </insert>
+</mapper>

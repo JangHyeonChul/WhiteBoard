@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragements/header :: header">
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<div th:replace="fragements/bodyHeader"></div>
+
+<div class="app-layout">
+
+  <div class="app-member-card-header"><h1>회원가입</h1>
+    <span style="font-size: 13px;"><em style="color: red; ">*</em>붙은 표시는 필수입력 입니다</span></div>
+
+  <form th:object="${Member}" th:action="@{/member/submitRegister}" th:method="post" class="register-submit-form">
+    <li>
+      <div class="register-body-li">
+        <label>이메일 주소</label>
+        <div>
+        <input name="email" id="email" th:type="email">
+        <button th:type="button" id="register-emailcheck">중복체크</button>
+        </div>
+        <span id="email-span"></span>
+        </div>
+
+    </li>
+    <li>
+      <div class="register-body-li">
+        <label>인증번호</label>
+        <input id="email-check">
+        <span id="email-check-span"></span>
+      </div>
+    </li>
+    <li>
+      <div class="register-body-li">
+        <label>비밀번호</label>
+        <input th:type="password" name="password" id="pwd">
+        <span id="pwd-check-span"></span>
+      </div>
+    </li>
+    <li>
+      <div class="register-body-li">
+        <label>비밀번호 확인</label>
+        <input th:type="password" name="password-check" id="pwd-check">
+        <span></span>
+      </div>
+    </li>
+    <li>
+      <div class="register-body-li">
+        <label>닉네임</label>
+        <input id="nick" th:type="text" name="nickname">
+        <span id="nick-check-span"></span>
+      </div>
+    </li>
+  <button disabled="true" th:type="button" id="register_send_btn" th:text="가입"></button>
+  </form>
+  <span id="register-submit-span"></span>
+
+</div>
+
+<div th:replace="fragements/modal-login"></div>
+<div th:replace="fragements/javascript"></div>
+
+</body>
+</html>
