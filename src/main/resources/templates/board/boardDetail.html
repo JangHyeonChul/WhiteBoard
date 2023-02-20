@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/basic">
+<head th:replace="fragements/header">
     <meta charset="UTF-8">
-    <title>boardDetail</title>
+    <title>상세</title>
 </head>
 <body>
-    <span th:text="링크"></span>
+<div th:replace="fragements/bodyHeader"></div>
+<div class="app-header-space"></div>
+<div class="app-layout">
+    <div class="app-member-content-header"><i class="fas fa-lightbulb"></i> 게시글 상세</div>
+
+    <table border="1px">
+        <thead>
+        <tr>
+            <th>UID</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Created At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${board.uid}"></td>
+            <td th:text="${board.created_user}"></td>
+            <td th:text="${board.title}"></td>
+            <td th:text="${board.content}"></td>
+            <td th:text="${board.created_at}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

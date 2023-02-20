@@ -2,6 +2,8 @@ package com.moon.whiteboard.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.File;
 import java.util.ArrayList;
