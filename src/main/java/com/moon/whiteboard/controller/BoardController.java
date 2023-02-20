@@ -18,6 +18,7 @@ import java.io.IOException;
 @Controller
 @Slf4j
 @RequestMapping("/board")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BoardController {
     private final BoardService boardService;
 
