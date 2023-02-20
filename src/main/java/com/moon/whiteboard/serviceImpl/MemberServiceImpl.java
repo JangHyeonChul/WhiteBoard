@@ -2,7 +2,7 @@ package com.moon.whiteboard.serviceImpl;
 
 import com.moon.whiteboard.dto.Member;
 
-import com.moon.whiteboard.mapper.MemberDAO;
+import com.moon.whiteboard.mapper.MemberMapper;
 import com.moon.whiteboard.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,16 +11,16 @@ import org.springframework.stereotype.Service;
 public class MemberServiceImpl implements MemberService {
 
     @Autowired
-    MemberDAO memberDAO;
+    MemberMapper memberMapper;
 
     @Override
     public void save(Member member) {
-        memberDAO.saveMember(member);
+        memberMapper.saveMember(member);
     }
 
     @Override
     public Member findEmail(String email) {
-         return memberDAO.findByEmail(email);
+         return memberMapper.findByEmail(email);
     }
 
 

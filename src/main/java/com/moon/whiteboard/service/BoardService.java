@@ -11,6 +11,6 @@ import java.io.IOException;
 import java.util.List;
 
 public interface BoardService {
-    BoardDto getBoardDetail(Long uid);
+    BoardDto getBoardDetail(long uid);
     void write(BoardDto boardDto, MultipartFile[] files) throws IOException;
 }

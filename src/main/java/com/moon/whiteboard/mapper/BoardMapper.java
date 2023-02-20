@@ -12,12 +12,10 @@ import java.util.List;
 import java.util.List;
 
 @Mapper
-@Repository("BoardMapper")
 public interface BoardMapper {
     void insertBoard(BoardDto boardDto);
 
     void insertFile(List<FileDto> fileList);
 
-    @Select("SELECT * FROM board WHERE uid = #{uid}")
-    BoardDto selectBoard(Long uid);
+    BoardDto selectBoard(long uid);
 }

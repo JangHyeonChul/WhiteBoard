@@ -24,8 +24,8 @@ public class BoardController {
 
 
     @GetMapping("/boardDetail")
-    public String getBoardDetail(Model model) {
-        BoardDto board = boardService.getBoardDetail(1L); // uid == 1의 값을 가져오기.
+    public String getBoardDetail(Model model, @RequestParam("uid") long uid) {
+        BoardDto board = boardService.getBoardDetail(uid); // uid == 1의 값을 가져오기.
         model.addAttribute("board", board);
         return "board/boardDetail";
     }

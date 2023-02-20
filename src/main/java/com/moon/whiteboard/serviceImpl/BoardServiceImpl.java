@@ -30,9 +30,10 @@ public class BoardServiceImpl implements BoardService {
     private BoardMapper boardMapper;
 
     @Override
-    public BoardDto getBoardDetail(Long uid) {
+    public BoardDto getBoardDetail(long uid) {
         return boardMapper.selectBoard(uid);
     }
+
     @Override
     public void write(BoardDto boardDto, MultipartFile[] files) throws IOException {
         log.info("페이지 글쓰기 확인 222");
