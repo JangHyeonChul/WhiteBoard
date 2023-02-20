@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragements/header">
+<head th:replace="fragements/header :: header">
     <meta charset="UTF-8">
     <title>index</title>
 </head>
@@ -13,7 +13,6 @@
 <div th:replace="fragements/bodyHeader"></div>
 
 
-<div class="app-header-space"></div>
 <div class="app-layout">
     <div class="app-member-content-header"><i class="fas fa-lightbulb"></i>  최신글</div>
 
@@ -45,6 +44,7 @@
 </div>
 
 <div th:replace="fragements/modal-login"></div>
-<script type="text/javascript" src="modaljs.js"></script>
+<div th:replace="fragements/javascript"></div>
+
 </body>
 </html>
