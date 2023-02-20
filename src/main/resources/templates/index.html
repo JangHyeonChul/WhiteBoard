@@ -6,10 +6,13 @@
 </head>
 <body>
 <div th:replace="fragements/bodyHeader"></div>
+
+
 <div class="app-header-space"></div>
 <div class="app-layout">
     <div class="app-member-content-header"><i class="fas fa-lightbulb"></i>  최신글</div>
-
+    <span th:text="링크"></span>
+    <a th:href="@{/board/write}">글쓰기</a>
     <li class="member-content-list">
         <a th:href="@{/board/boardDetail}" style="text-decoration: none; color: black" >
             <div>
@@ -23,9 +26,12 @@
             <span class="member-content-span">작성일, 작성자, 조회수</span>
         </div>
     </li>
+
+
 </div>
 
 <div th:replace="fragements/modal-login"></div>
 <script type="text/javascript" src="modaljs.js"></script>
+>>>>>>>>> Temporary merge branch 2
 </body>
 </html>
