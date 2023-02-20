@@ -96,7 +96,10 @@
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.137);
     width: 25%;
+}
 
+.register-submit-form input:focus {
+    border: 1px solid rgba(255, 0, 0, 0.13);
 }
 
 .register-submit-form input:focus {
@@ -108,6 +111,28 @@
 }
 
 
+#register-emailcheck {
+    margin-left: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    font-size: 0.8rem;
+}
+
+.check-mail {
+    font-size: 0.70rem;
+}
+
+#nick-check-span,
+#pwd-check-span,
+#email-check-span,
+#email-span {
+    margin-top: 1rem;
+    color : #ff6262;
+}
+
+#register_send_btn {
+    margin-top: 1.25rem;
+}
 #register-emailcheck {
     margin-left: 0.5rem;
     border-radius: 0.5rem;

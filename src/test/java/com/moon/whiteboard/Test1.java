@@ -1,13 +1,11 @@
 package com.moon.whiteboard;
 
 
-import com.moon.whiteboard.Service.MemberService;
+import com.moon.whiteboard.service.MemberService;
 import com.moon.whiteboard.dto.Member;
-import com.moon.whiteboard.mapperdao.MemberDAO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mail.javamail.JavaMailSender;
 
 @SpringBootTest
 public class Test1 {

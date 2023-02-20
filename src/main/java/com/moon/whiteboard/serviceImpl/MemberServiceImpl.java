@@ -1,10 +1,10 @@
-package com.moon.whiteboard.Service;
+package com.moon.whiteboard.serviceImpl;
 
 import com.moon.whiteboard.dto.Member;
 
-import com.moon.whiteboard.mapperdao.MemberDAO;
+import com.moon.whiteboard.mapper.MemberDAO;
+import com.moon.whiteboard.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Service

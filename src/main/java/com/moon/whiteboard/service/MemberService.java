@@ -1,4 +1,4 @@
-package com.moon.whiteboard.Service;
+package com.moon.whiteboard.service;
 
 
 import com.moon.whiteboard.dto.Member;

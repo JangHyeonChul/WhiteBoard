@@ -1,5 +1,6 @@
-package com.moon.whiteboard.Service;
+package com.moon.whiteboard.serviceImpl;
 
+import com.moon.whiteboard.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Random;
 
 @Service
-public class EmailServiceImpl implements EmailService{
+public class EmailServiceImpl implements EmailService {
 
     @Autowired
     JavaMailSender mailSender;
