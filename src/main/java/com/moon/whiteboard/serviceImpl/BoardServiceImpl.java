@@ -7,17 +7,21 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @Slf4j
 public class BoardServiceImpl implements BoardService {
 
-    @Autowired
-    BoardService boardService;
+    private final BoardMapper boardMapper;
+
+    public BoardServiceImpl(BoardMapper boardMapper) {
+        this.boardMapper = boardMapper;
+    }
 
     @Override
-    public List<BoardDto> getBoard() throws Exception{
-        return boardService.getBoard();
+    public BoardDto getBoardDetail(Long uid) {
+        return boardMapper.selectBoard(uid);
     }
 }
