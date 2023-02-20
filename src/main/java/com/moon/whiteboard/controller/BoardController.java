@@ -18,13 +18,10 @@ import java.io.IOException;
 @Controller
 @Slf4j
 @RequestMapping("/board")
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BoardController {
-    private final BoardService boardService;
+    @Autowired
+    BoardService boardService;
 
-    public BoardController(BoardService boardService) {
-        this.boardService = boardService;
-    }
 
     @GetMapping("/boardDetail")
     public String getBoardDetail(Model model) {

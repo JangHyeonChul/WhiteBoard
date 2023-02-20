@@ -26,11 +26,8 @@ import java.util.List;
 @Slf4j
 public class BoardServiceImpl implements BoardService {
 
-    private final BoardMapper boardMapper;
-
-    public BoardServiceImpl(BoardMapper boardMapper) {
-        this.boardMapper = boardMapper;
-    }
+    @Autowired
+    private BoardMapper boardMapper;
 
     @Override
     public BoardDto getBoardDetail(Long uid) {
