@@ -19,6 +19,31 @@
                 )
             </foreach>
 
+
+<!--    <select id="getBoard" resultType="com.moon.whiteboard.dto.BoardDto">-->
+<!--		<![CDATA[-->
+<!--        SELECT uid, type, title, content, created_user, DATE_FORMAT(created_At, '%Y.%m.%d %H:%i:%s') as created_At, DATE_FORMAT(updated_at, '%Y.%m.%d %H:%i:%s') as updated_at, is_del, view_cnt-->
+<!--        FROM board-->
+<!--        ORDER BY uid DESC-->
+<!--        ]]>-->
+<!--	</select>-->
+    <resultMap id="boardResultMap" type="com.example.dto.BoardDto">
+        <id property="uid" column="uid"/>
+        <result property="type" column="type"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="createdUser" column="created_user"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="isDel" column="is_del"/>
+        <result property="viewCnt" column="view_cnt"/>
+    </resultMap>
+
+    <select id="selectBoardByUid" resultMap="boardResultMap">
+        SELECT * FROM board WHERE uid = #{uid}
+    </select>
+
+
     </insert>
 
     <insert id="insertBoard" parameterType="com.moon.whiteboard.dto.BoardDto">

@@ -17,13 +17,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Slf4j
 public class BoardServiceImpl implements BoardService {
 
-    @Autowired
-    BoardMapper boardMapper;
+    private final BoardMapper boardMapper;
 
+    public BoardServiceImpl(BoardMapper boardMapper) {
+        this.boardMapper = boardMapper;
+    }
+
+    @Override
+    public BoardDto getBoardDetail(Long uid) {
+        return boardMapper.selectBoard(uid);
+    }
     @Override
     public void write(BoardDto boardDto, MultipartFile[] files) throws IOException {
         log.info("페이지 글쓰기 확인 222");
