@@ -35,6 +35,12 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public List<BoardDto> getBoardList() {
+        return boardMapper.selectBoardList();
+    }
+
+
+    @Override
     public void write(BoardDto boardDto, MultipartFile[] files) throws IOException {
         log.info("페이지 글쓰기 확인 222");
         List<FileDto> fileList = new ArrayList<>();
@@ -70,4 +76,6 @@ public class BoardServiceImpl implements BoardService {
         }
 
     }
+
+
 }

@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -22,10 +23,17 @@ public class BoardController {
     @Autowired
     BoardService boardService;
 
+    @GetMapping("")
+    public String index(Model model) {
+        List<BoardDto> boardList = boardService.getBoardList();
+        model.addAttribute("boardList", boardList);
+        System.out.println("나오는지"+boardList);
+        return "index";
+    }
 
     @GetMapping("/boardDetail")
     public String getBoardDetail(Model model, @RequestParam("uid") long uid) {
-        BoardDto board = boardService.getBoardDetail(uid); // uid == 1의 값을 가져오기.
+        BoardDto board = boardService.getBoardDetail(uid); // uid == board.uid 의 값을 가져오기.
         model.addAttribute("board", board);
         return "board/boardDetail";
     }
