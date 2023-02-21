@@ -2,7 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragements/header">
     <title>BoardWrite</title>
+
 <body>
+<link rel="stylesheet" href="/css/write.css">
 <div th:replace="fragements/bodyHeader"></div>
 <div class="app-header-space"></div>
 <div class="app-layout">
@@ -21,16 +23,92 @@
         <input type="text" class="form-control" id="title" name="title" th:value="${boardDto.title}"/>
     </div>
     <div class="form-group">
-        <label for="content">Content</label>
-        <textarea class="form-control" id="content" rows="5" name="content" th:text="${boardDto.content}"></textarea>
+        <label for="file">File</label>
+        <div class="drop-zone" ondrop="handleFileDrop(event)" ondragover="handleDragOver(event)">
+            <div class="drop-zone__prompt">파일을 드래그앤드롭 하거나 클릭해서 파일을 선택하세요.</div>
+            <input type="file" id="file" name="file" multiple class="drop-zone__input" />
+        </div>
+        <div id="file-list-container"></div>
     </div>
     <div class="form-group">
-        <label for="file">File</label>
-        <input type="file" class="form-control-file" id="file" name="file" multiple>
+        <label for="content">Content</label>
+        <textarea class="form-control" id="content" rows="20" name="content" th:text="${boardDto.content}"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">글 작성</button>
 </form>
 </div>
+<script>
+    const fileInput = document.querySelector('#file');
+    let fileList = [];
+
+    fileInput.addEventListener('change', () => {
+        fileList = [...fileList, ...fileInput.files];
+        showFileList();
+        fileInput.value = '';
+    });
+
+    function handleFileDrop(event) {
+        event.preventDefault();
+        const files = event.dataTransfer.files;
+
+        // 중복 제거 후 파일 목록에 추가
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            if (!fileList.some((f) => f.name === file.name && f.size === file.size)) {
+                fileList.push(file);
+            }
+        }
+
+        showFileList();
+    }
+
+    function handleDragOver(event) {
+        event.preventDefault();
+        const dropZone = document.querySelector('.drop-zone');
+        dropZone.classList.add('drop-zone--over');
+    }
+
+    function showFileList() {
+        const fileListContainer = document.querySelector('#file-list-container');
+        fileListContainer.innerHTML = '';
+
+        const fileListElement = document.createElement('div');
+        fileListElement.classList.add('file-list');
+
+        for (let i = 0; i < fileList.length; i++) {
+            const file = fileList[i];
+
+            const fileListItemElement = document.createElement('div');
+            fileListItemElement.classList.add('file-list__item');
+
+            const fileListItemNameElement = document.createElement('div');
+            fileListItemNameElement.classList.add('file-list__name');
+            fileListItemNameElement.textContent = file.name;
+
+            const fileListItemDeleteElement = document.createElement('button');
+            fileListItemDeleteElement.classList.add('file-list__delete');
+            fileListItemDeleteElement.textContent = '삭제';
+            fileListItemDeleteElement.addEventListener('click', () => {
+                fileList = fileList.filter((item) => item !== file);
+                showFileList();
+            });
+
+            fileListItemElement.appendChild(fileListItemNameElement);
+            fileListItemElement.appendChild(fileListItemDeleteElement);
+            fileListElement.appendChild(fileListItemElement);
+        }
+
+        fileListContainer.appendChild(fileListElement);
+    }
+
+    const dropZone = document.querySelector('.drop-zone');
+
+    dropZone.addEventListener('dragover', handleDragOver);
+    dropZone.addEventListener('drop', handleFileDrop);
+    dropZone.addEventListener('click', () => {
+        fileInput.click();
+    });
+</script>
 </body>
 
 </html>

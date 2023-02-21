@@ -1,0 +1,150 @@
+.app-header-space {
+    height: 100px;
+}
+
+.app-layout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select,
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+select:focus,
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control-file {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.form-control-file.drag {
+    background-color: #f0f0f0;
+    border-color: #999;
+}
+
+.form-control-file.drag label {
+    font-weight: bold;
+    color: #999;
+}
+
+.form-control-file input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 25px;
+    text-align: center;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.drop-zone__prompt {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+}
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.file-list__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.file-list__name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.file-list__delete {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.file-list__delete:hover {
+    background-color: #c82333;
+}
