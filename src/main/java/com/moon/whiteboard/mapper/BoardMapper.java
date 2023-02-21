@@ -18,4 +18,6 @@ public interface BoardMapper {
     void insertFile(List<FileDto> fileList);
 
     BoardDto selectBoard(long uid);
+
+    List<BoardDto> selectBoardList();//보드 리스트 가져오는 것
 }

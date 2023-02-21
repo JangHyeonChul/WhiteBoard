@@ -6,24 +6,29 @@
 </head>
 <body>
 <div th:replace="fragements/bodyHeader"></div>
-
-
 <div class="app-header-space"></div>
 <div class="app-layout">
     <div class="app-member-content-header"><i class="fas fa-lightbulb"></i>  최신글</div>
     <span th:text="링크"></span>
     <a th:href="@{/board/write}">글쓰기</a>
-    <li class="member-content-list">
-        <a th:href="@{/board/boardDetail(uid=1)}" style="text-decoration: none; color: black" >
+    <li th:each="board : ${boardList}" class="member-content-list">
+<!--        보드리스트 만큼 반복-->
+        <a th:href="@{/board/boardDetail(uid=${board.uid})}" style="text-decoration: none; color: black" >
             <div>
-                <span class="member-content-span">제목</span>
+                <span th:text="${board.title}" class="member-content-span">제목</span>
             </div>
         </a>
         <div>
-            <span class="member-content-span">컨텐츠내용</span>
+            <span th:text="${board.content}" class="member-content-span">컨텐츠내용</span>
         </div>
         <div>
-            <span class="member-content-span">작성일, 작성자, 조회수</span>
+            <span th:text="${board.created_at}" class="member-content-span">작성일</span>
+        </div>
+        <div>
+            <span th:text="${board.created_user}"class="member-content-span">작성자</span>
+        </div>
+        <div>
+            <span th:text="${board.view_cnt}"class="member-content-span">조회수</span>
         </div>
     </li>
 
