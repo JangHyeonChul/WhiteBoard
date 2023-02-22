@@ -2,44 +2,85 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragements/header">
     <title>BoardWrite</title>
+</head>
 
 <body>
 <link rel="stylesheet" href="/css/write.css">
+<script src="./ajax.js"></script>
 <div th:replace="fragements/bodyHeader"></div>
 <div class="app-header-space"></div>
 <div class="app-layout">
-<h1>글쓰기</h1>
-<form th:action="@{/board/boardWrite}" th:object="${boardDto}" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="type">Type</label>
-        <select class="form-control" id="type" name="type" th:name="type">
-            <option value="f">자유게시판</option>
-            <option value="u">유머게시판</option>
-            <option value="r">공지사항</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" th:value="${boardDto.title}"/>
-    </div>
-    <div class="form-group">
-        <label for="file">File</label>
-        <div class="drop-zone" ondrop="handleFileDrop(event)" ondragover="handleDragOver(event)">
-            <div class="drop-zone__prompt">파일을 드래그앤드롭 하거나 클릭해서 파일을 선택하세요.</div>
-            <input type="file" id="file" name="file" multiple class="drop-zone__input" />
+    <h1>글쓰기</h1>
+    <form id="board-form" th:action="@{/board/boardWrite}" th:object="${boardDto}" method="post"
+          enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="type">Type</label>
+            <select class="form-control" id="type" name="type" th:name="type">
+                <option value="f">자유게시판</option>
+                <option value="u">유머게시판</option>
+                <option value="r">공지사항</option>
+            </select>
         </div>
-        <div id="file-list-container"></div>
-    </div>
-    <div class="form-group">
-        <label for="content">Content</label>
-        <textarea class="form-control" id="content" rows="20" name="content" th:text="${boardDto.content}"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">글 작성</button>
-</form>
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" th:value="${boardDto.title}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="file">File</label>
+            <div class="drop-zone" ondrop="handleFileDrop(event)" ondragover="handleDragOver(event)">
+                <div class="drop-zone__prompt">파일을 드래그앤드롭 하거나 클릭해서 파일을 선택하세요.</div>
+                <input type="file" id="file" name="file" multiple class="drop-zone__input"/>
+            </div>
+            <div id="file-list-container"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" id="content" rows="20" name="content"
+                      th:text="${boardDto.content}"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">글 작성</button>
+    </form>
 </div>
 <script>
     const fileInput = document.querySelector('#file');
     let fileList = [];
+    const form = document.getElementById('board-form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        uploadFiles(fileList);
+    });
+
+    function uploadFiles(files) {
+        const fileListContainer = document.getElementById("file-list-container");
+        const formData = new FormData(document.getElementById("board-form"));
+
+        for (let i = 0; i < files.length; i++) {
+            formData.append("file", files[i]);
+            fileListContainer.innerHTML += `<div>${files[i].name}</div>`;
+        }
+
+        fetch('/board/boardWrite', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert('게시글이 등록되었습니다.');
+                    window.location.href = "/";
+                } else {
+                    alert('게시글 등록에 실패했습니다.');
+                }
+            })
+            .catch(error => {
+                alert('게시글 등록에 실패했습니다.');
+                console.error(error);
+            });
+    }
 
     fileInput.addEventListener('change', () => {
         fileList = [...fileList, ...fileInput.files];

@@ -46,7 +46,7 @@ public class BoardController {
         return mv;
     }
 
-    @PostMapping("/boardWrite")
+    @RequestMapping(value = "/boardWrite", method = RequestMethod.POST)
     public String BoardWrite(@ModelAttribute("boardDto") BoardDto boardDto, @RequestParam("file")MultipartFile[] files) throws IOException {
         log.info("페이지 글쓰기 확인 111");
         boardService.write(boardDto, files);

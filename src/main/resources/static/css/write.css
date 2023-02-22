@@ -79,10 +79,10 @@ textarea:focus {
 
 .drop-zone {
     border: 2px dashed #ccc;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 25px;
     text-align: center;
-    height: 200px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
