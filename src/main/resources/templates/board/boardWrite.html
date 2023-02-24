@@ -25,7 +25,7 @@
 
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title" th:value="${boardDto.title}"/>
+            <input type="text" class="form-control" id="title" name="title" th:value="${boardDto.title}" required/>
         </div>
 
         <div class="form-group">
@@ -40,7 +40,7 @@
         <div class="form-group">
             <label for="content">Content</label>
             <textarea class="form-control" id="content" rows="20" name="content"
-                      th:text="${boardDto.content}"></textarea>
+                      th:text="${boardDto.content}" required></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">글 작성</button>
@@ -52,6 +52,14 @@
     const form = document.getElementById('board-form');
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+        if(document.getElementById('title').value.trim() ===''){
+            event.preventDefault();
+            alert('제목을 입력해주세요');
+        }
+        if(document.getElementById('content').value.trim() ===''){
+            event.preventDefault();
+            alert('내용을 입력해주세요');
+        }
         uploadFiles(fileList);
     });
 

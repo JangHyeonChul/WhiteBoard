@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moon.whiteboard.mapper.CommentMapper">
+    <resultMap id="commentResultMap" type="com.moon.whiteboard.dto.CommentDto">
+        <result property="uid" column="uid" />
+        <result property="mother_uid" column="mother_uid" />
+        <result property="comment" column="comment" />
+        <result property="created_user" column="created_user" />
+        <result property="created_at" column="created_at" />
+        <result property="update_at" column="update_at" />
+        <result property="is_del" column="is_del" />
+    </resultMap>
+
+    <select id="getCommentList" parameterType="long" resultMap="commentResultMap">
+        SELECT
+            *
+        FROM
+            comment
+        WHERE
+            mother_uid = #{boardUid}
+          AND
+            is_del = 0
+    </select>
+
+    <insert id="writeComment" parameterType="com.moon.whiteboard.dto.CommentDto">
+        INSERT INTO
+            comment(
+                    mother_uid,
+                    comment,
+                    created_user,
+                    created_at
+                    )
+        VALUES (
+                #{mother_uid},
+                #{comment},
+                #{created_user},
+                now()
+                )
+    </insert>
+</mapper>
