@@ -1,0 +1,98 @@
+.board_list {
+    width: 100%;
+    border-top: 2px solid #000000;
+}
+
+.board_list > div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    font-size: 0;
+}
+
+.board_list > div.top {
+    border-bottom: 1px solid #999;
+}
+
+.board_list > div:last-child {
+    border-bottom: 2px solid #000000;
+}
+
+.board_list > div > div {
+    display: inline-block;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.4rem;
+}
+
+.board_list > div.top > div {
+    font-weight: 600;
+}
+
+.board_list .num {
+    width: 10%;
+}
+
+.board_list .title {
+    width: 45%;
+    text-align: left;
+    text-decoration: none;
+    color: black;
+}
+
+.board_list .top .title {
+    text-align: center;
+}
+
+.board_list .writer {
+    width: 10%;
+}
+
+.board_list .date {
+    width: 25%;
+}
+
+.board_list .count {
+    width: 10%;
+}
+
+.member-content-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 0;
+}
+
+.member-content-list > div {
+    display: inline-block;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.4rem;
+}
+
+.member-content-list > div:first-child {
+    width: 10%;
+}
+
+.member-content-list > div:nth-child(2) {
+    width: 45%;
+    text-align: left;
+}
+
+.member-content-list > div:nth-child(2) > a {
+    text-decoration: none;
+    color: black;
+}
+
+.member-content-list > div:nth-child(3) {
+    width: 10%;
+}
+
+.member-content-list > div:nth-child(4) {
+    width: 25%;
+}
+
+.member-content-list > div:last-child {
+    width: 10%;
+}
