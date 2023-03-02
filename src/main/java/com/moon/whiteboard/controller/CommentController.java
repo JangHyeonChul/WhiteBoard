@@ -27,4 +27,15 @@ public class CommentController {
         List<CommentDto> comment = commentService.getComments(boardUid);
         return ResponseEntity.ok(comment);
     }
+
+    @PostMapping("/delete")
+    public ResponseEntity<?> deleteComment(@RequestParam("commentUid") Long commentUid){
+        log.info("댓글삭제 확인 111");
+        try {
+            commentService.deleteComment(commentUid);
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().build();
+    }
 }

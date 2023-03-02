@@ -37,4 +37,22 @@
                 now()
                 )
     </insert>
+
+    <select id="getCommentUid" resultType="com.moon.whiteboard.dto.CommentDto">
+        SELECT
+            uid
+        FROM
+            comment
+        WHERE
+            mother_uid = #{boardUid}
+    </select>
+
+    <update id="deleteComment">
+        UPDATE
+            comment
+        SET
+            is_del = 1
+        WHERE
+            uid = #{commentUid}
+    </update>
 </mapper>

@@ -10,4 +10,8 @@ public interface CommentMapper {
     void writeComment(CommentDto commentDto);
 
     List<CommentDto> getCommentList(Long boardUid);
+
+    CommentDto getCommentUid(Long commentUid);
+
+    void deleteComment(Long commentUid);
 }
