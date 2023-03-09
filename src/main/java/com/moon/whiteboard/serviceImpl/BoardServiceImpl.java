@@ -36,11 +36,22 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<BoardDto> getBoardListWithPaging(int page) {
-        int limit = 10; // 한 페이지당 보여줄 게시물 수
-//        int offset = (page - 1) * limit;
-        int offset = Math.max((page - 1) * limit, 0); // 시작 위치 계산
-        return boardMapper.selectBoardListWithLimitAndOffset(limit, offset);
+    public List<BoardDto> getBoardListWithPaging(int page, int pageSize) {
+        int totalCount = getBoardCount(); // 총 게시물 수
+
+        int totalPageCount = (int) Math.ceil((double) totalCount / pageSize); // 총 페이지 수
+
+        int start = (page - 1) * pageSize; // 시작 위치
+
+        // 페이지 번호 범위 설정
+        int startPage = ((page - 1) / 5) * 5 + 1;
+        int endPage = Math.min(startPage + 4, totalPageCount);
+
+        // 이전 페이지, 다음 페이지 설정
+        int prevPage = Math.max(page - 1, 1);
+        int nextPage = Math.min(page + 1, totalPageCount);
+
+        return boardMapper.selectBoardListWithLimitAndOffset(pageSize, start);
     }
 
 

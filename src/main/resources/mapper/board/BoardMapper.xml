@@ -15,7 +15,12 @@
 <!--    </resultMap>-->
 
     <select id="selectBoardCount" resultType="int">
-        SELECT COUNT(*) FROM board WHERE is_del=0
+        SELECT
+            COUNT(*)
+        FROM
+            board
+        WHERE
+            is_del=0
     </select>
 
     <select id="selectBoardListWithLimitAndOffset" resultType="com.moon.whiteboard.dto.BoardDto">
@@ -27,7 +32,7 @@
             is_del=0
         ORDER BY
             uid DESC
-            LIMIT #{limit} OFFSET #{offset}
+            LIMIT #{limit} OFFSET #{offset, jdbcType=INTEGER}
     </select>
 
     <select id="selectBoardList" resultType="com.moon.whiteboard.dto.BoardDto">

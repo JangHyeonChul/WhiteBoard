@@ -24,31 +24,18 @@ public class BoardController {
 
     @GetMapping("/page")
     public String home(Model model, @RequestParam(name = "nowPage", defaultValue = "1") int currentPage) {
-        // 한 페이지에 표시 될 게시물 수
-        int pageSize = 10;
+        int pageSize = 10; // 한 페이지에 표시될 게시물 수
 
-        // 총 게시물 수
+        List<BoardDto> boardList = boardService.getBoardListWithPaging(currentPage, pageSize);
+
         int totalCount = boardService.getBoardCount();
-
-        // 총 페이지 수
         int totalPageCount = (int) Math.ceil((double) totalCount / pageSize);
 
-//        // 현재 페이지 번호
-//        int currentPage = page;
-
-        // 시작 위치
-        int start = Math.max((currentPage - 1) * pageSize, 0);
-
-        // 페이지 번호 범위 설정
         int startPage = ((currentPage - 1) / 5) * 5 + 1;
         int endPage = Math.min(startPage + 4, totalPageCount);
 
-        // 이전 페이지, 다음 페이지 설정
         int prevPage = Math.max(currentPage - 1, 1);
         int nextPage = Math.min(currentPage + 1, totalPageCount);
-
-        // 게시물 리스트 가져오기
-        List<BoardDto> boardList = boardService.getBoardListWithPaging(start);
 
         model.addAttribute("boardList", boardList);
         model.addAttribute("totalCount", totalCount);
@@ -60,6 +47,13 @@ public class BoardController {
         model.addAttribute("nextPage", nextPage);
 
         System.out.println("currentPage"+currentPage);
+        System.out.println("totalCount"+totalCount);
+        System.out.println("totalPageCount"+totalPageCount);
+        System.out.println("startPage"+startPage);
+        System.out.println("endPage"+endPage);
+        System.out.println("prevPage"+prevPage);
+        System.out.println("nextPage"+nextPage);
+
         return "index";
     }
 

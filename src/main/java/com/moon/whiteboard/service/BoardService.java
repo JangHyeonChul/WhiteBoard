@@ -14,7 +14,7 @@ public interface BoardService {
     BoardDto getBoardDetail(long uid);
 
     int getBoardCount();
-    List<BoardDto> getBoardListWithPaging(int page);
+    List<BoardDto> getBoardListWithPaging(int page, int pageSize);
 
     void write(BoardDto boardDto, MultipartFile[] files) throws IOException;
 
