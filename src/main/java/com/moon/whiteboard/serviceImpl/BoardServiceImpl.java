@@ -30,12 +30,6 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.selectBoard(uid);
     }
 
-    // 기존의 getBoardList 메소드는 그대로 두고 새로운 메소드 두 개를 추가함
-    @Override
-    public List<BoardDto> getBoardList() {
-        return boardMapper.selectBoardList();
-    }
-
     @Override
     public int getBoardCount() {
         return boardMapper.selectBoardCount();
@@ -44,7 +38,8 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<BoardDto> getBoardListWithPaging(int page) {
         int limit = 10; // 한 페이지당 보여줄 게시물 수
-        int offset = (page - 1) * limit; // 시작 위치 계산
+//        int offset = (page - 1) * limit;
+        int offset = Math.max((page - 1) * limit, 0); // 시작 위치 계산
         return boardMapper.selectBoardListWithLimitAndOffset(limit, offset);
     }
 

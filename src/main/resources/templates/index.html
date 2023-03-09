@@ -55,7 +55,8 @@
                 &lt;</a>
         </li>
         <!-- 페이지 번호 출력 -->
-        <li th:each="i : ${#numbers.sequence(1, totalPageCount)}" th:class="${i == currentPage} ? 'active'">
+<!--        th:class="${i == currentPage} ? 'active'"-->
+        <li th:each="i : ${#numbers.sequence(1, totalPageCount)}">
             <a th:href="@{/board/page(nowPage=${i})}" th:text="${i}"></a>
         </li>
         <!-- 다음 페이지로 가는 버튼 -->
