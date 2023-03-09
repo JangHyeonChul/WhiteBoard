@@ -22,7 +22,7 @@ public class BoardController {
     @Autowired
     BoardService boardService;
 
-    @GetMapping("")
+    @GetMapping("/page")
     public String home(Model model, @RequestParam(defaultValue = "1") int page) {
         // 한 페이지에 표시 될 게시물 수
         int pageSize = 10;
