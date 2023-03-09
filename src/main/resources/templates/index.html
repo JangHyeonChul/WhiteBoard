@@ -12,7 +12,7 @@
     <span th:text="링크"></span>
     <a th:href="@{/board/write}">글쓰기</a>
     <link rel="stylesheet" href="/css/list.css">
-    <div class="board_list">
+    <ul class="board_list">
         <div class="top">
             <div class="num">글 번호</div>
             <div class="title">제목</div>
@@ -20,25 +20,55 @@
             <div class="date">작성일</div>
             <div class="count">조회</div>
         </div>
-    <li th:each="board : ${boardList}" class="member-content-list">
-        <div class="num">
-            <span th:text="${board.uid}">UID</span>
-        </div>
-        <div class="title">
-            <a th:href="@{/board/boardDetail(uid=${board.uid})}">
-                <span th:text="${board.title}">제목</span>
-            </a>
-        </div>
-        <div class="writer">
-            <span th:text="${board.created_user}">작성자</span>
-        </div>
-        <div class="date">
-            <span th:text="${#dates.format(board.created_at, 'MM-dd')}">작성일</span>
-        </div>
-        <div class="count">
-            <span th:text="${board.view_cnt}">조회수</span>
-        </div>
-    </li>
+        <li th:each="board : ${boardList}" class="member-content-list">
+            <div class="num">
+                <span th:text="${board.uid}">UID</span>
+            </div>
+            <div class="title">
+                <a th:href="@{/board/boardDetail(uid=${board.uid})}">
+                    <span th:text="${board.title}">제목</span>
+                </a>
+            </div>
+            <div class="writer">
+                <span th:text="${board.created_user}">작성자</span>
+            </div>
+            <div class="date">
+                <span th:text="${#dates.format(board.created_at, 'MM-dd')}">작성일</span>
+            </div>
+            <div class="count">
+                <span th:text="${board.view_cnt}">조회수</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="pagination">
+    <link rel="stylesheet" href="/css/pageBtn.css">
+    <ul>
+        <!-- 맨 처음 페이지로 가는 버튼 -->
+        <li th:if="${currentPage > 1}">
+            <a th:href="@{/board/page(nowPage=1)}">
+                &lt;&lt;</a>
+        </li>
+        <!-- 이전 페이지로 가는 버튼 -->
+        <li th:if="${currentPage > 1}">
+            <a th:href="@{/board/page(nowPage=${currentPage - 1})}">
+                &lt;</a>
+        </li>
+        <!-- 페이지 번호 출력 -->
+        <li th:each="i : ${#numbers.sequence(1, totalPageCount)}" th:class="${i == currentPage} ? 'active'">
+            <a th:href="@{/board/page(nowPage=${i})}" th:text="${i}"></a>
+        </li>
+        <!-- 다음 페이지로 가는 버튼 -->
+        <li th:if="${currentPage < totalPageCount}">
+            <a th:href="@{/board/page(nowPage=${currentPage + 1})}">
+                &gt;</a>
+        </li>
+        <!-- 맨 마지막 페이지로 가는 버튼 -->
+        <li th:if="${currentPage < totalPageCount}">
+            <a th:href="@{/board/page(nowPage=${totalPageCount})}">
+                &gt;&gt;</a>
+        </li>
+    </ul>
 </div>
 
 <div th:replace="fragements/modal-login"></div>

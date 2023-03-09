@@ -1,7 +1,6 @@
 package com.moon.whiteboard.serviceImpl;
 
 import com.moon.whiteboard.dto.BoardDto;
-import com.moon.whiteboard.dto.BoardTypeDto;
 import com.moon.whiteboard.dto.FileDto;
 import com.moon.whiteboard.mapper.BoardMapper;
 import com.moon.whiteboard.service.BoardService;
@@ -18,9 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 @Repository
 @Slf4j
@@ -34,9 +30,22 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.selectBoard(uid);
     }
 
+    // 기존의 getBoardList 메소드는 그대로 두고 새로운 메소드 두 개를 추가함
     @Override
     public List<BoardDto> getBoardList() {
         return boardMapper.selectBoardList();
+    }
+
+    @Override
+    public int getBoardCount() {
+        return boardMapper.selectBoardCount();
+    }
+
+    @Override
+    public List<BoardDto> getBoardListWithPaging(int page) {
+        int limit = 10; // 한 페이지당 보여줄 게시물 수
+        int offset = (page - 1) * limit; // 시작 위치 계산
+        return boardMapper.selectBoardListWithLimitAndOffset(limit, offset);
     }
 
 
