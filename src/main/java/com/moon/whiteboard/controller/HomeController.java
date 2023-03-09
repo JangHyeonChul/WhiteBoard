@@ -13,7 +13,7 @@ import java.util.List;
 public class HomeController {
     @Autowired
     BoardService boardService;
-    @GetMapping("/page")
+    @GetMapping("/")
     public String home(Model model, @RequestParam(name = "nowPage", defaultValue = "1") int currentPage) {
         int pageSize = 10; // 한 페이지에 표시될 게시물 수
 
